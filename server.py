@@ -1,7 +1,7 @@
 import socket
 import threading
 
-def recieve_screenshots():
+def send_screenshots():
     #a function that sends the client constant screenshots
     pass
 
@@ -10,7 +10,7 @@ def move_mouse():
     pass
 
 def keyboard_presses():
-    #a function that presses the keyboards
+    #a function that presses the keys that the client pressed
     pass
 
 
@@ -27,7 +27,7 @@ def start_server(ip, port):
         while True:
             #accepting the connections and running the different functions on it
             conn, addr = server_socket.accept()
-            screenshots_thread = threading.Thread(target=recieve_screenshots).start()
+            screenshots_thread = threading.Thread(target=send_screenshots).start()
             mouse_thread = threading.Thread(target=move_mouse).start()
             keyboard_thread = threading.Thread(target=keyboard_presses).start()
             
